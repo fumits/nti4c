@@ -1,23 +1,29 @@
+#!/bin/bash
+
 # Install functions
 # 1. FSL, 2. FreeSurfer, 3. DSI Studio
 
-# FSL
-function install_fsl () {
-    is_fsl=$(which fsl)
-    is_fslinstaller=$(find ~/ -name "fslinstaller.py")
-
-    if [ -z $is_fsl ]; then
-        echo "FSL does not exist. Finding FSL installer..."
-        if [ -z $is_fslinstaller ]; then
-            echo "The FSL installer not found. Downloading the FSL installer..."
-            curl -O "https://fsl.fmrib.ox.ac.uk/fsldownloads/fslinstaller.py"
-        else
-            echo "The FSL installer found..."
-        fi
-    fi
-    echo "Installing FSL..."
-    python2 fslinstaller.py
+function hello () {
+    echo "hello"
 }
+
+# FSL
+# function install_fsl () {
+#     is_fsl=$(which fsl)
+#     is_fslinstaller=$(find ~/ -name "fslinstaller.py")
+
+#     if [ -z $is_fsl ]; then
+#         echo "FSL does not exist. Finding FSL installer..."
+#         if [ -z $is_fslinstaller ]; then
+#             echo "The FSL installer not found. Downloading the FSL installer..."
+#             curl -O "https://fsl.fmrib.ox.ac.uk/fsldownloads/fslinstaller.py"
+#         else
+#             echo "The FSL installer found..."
+#         fi
+#     fi
+#     echo "Installing FSL..."
+#     python2 fslinstaller.py
+# }
 
 # # FreeSurfer series of the version 6 or 7
 # function install_freesurfer () {
