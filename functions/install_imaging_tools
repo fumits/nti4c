@@ -108,7 +108,7 @@ function install_freesurfer () {
     elif [ $1 = "7.2.0" ]; then
         cd $HOME
         apt install ./$fs_filename -y
-
+    fi
 
 }
 
