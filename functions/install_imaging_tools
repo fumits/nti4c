@@ -93,6 +93,7 @@ function install_freesurfer () {
 
     echo "The consistency of the downloaded file was confirmed./
     Installing FreeSurfer $1..."
+    fi
 
     path_to_fs="/usr/local/freesurfer"
 
