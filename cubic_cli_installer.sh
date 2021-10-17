@@ -12,7 +12,7 @@
 apt update
 # apt upgrade -y
 
-apt install git curl vim -y
+# apt install git curl vim -y
 
 . ./functions/install_imaging_tools
 . ./functions/install_analysis_tools

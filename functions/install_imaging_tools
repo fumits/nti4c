@@ -31,7 +31,7 @@ function install_freesurfer () {
         You can not install FreeSurfer without the license file.\n
         Press y to continue. Press n to quit this install."
         read fs_license_answer
-        case fs_license_answer in
+        case $fs_license_answer in
             [Yy]*)
             break
             ;;
@@ -44,10 +44,10 @@ function install_freesurfer () {
     echo -e "Preparing to check libraries with dependency. \n
     Download and install libjpg62 and libpng12 if do not exist."
     
-    is_libjpg62=$(dpkg -l "libjpg62" | cut -c 1-3)
-    is_libpng12=$(dpkg -l "libpng12" | cut -c 1-3)
+    is_libjpeg62=$(dpkg -l | grep "libjpeg62" | cut -c 1-2)
+    is_libpng12=$(dpkg -l | grep "libpng12" | cut -c 1-2)
 
-    if [ is_libjpg62 = !"ii" ]; then
+    if [ is_libjpeg62 = !"ii" ]; then
         curl -O http://security.ubuntu.com/ubuntu/pool/universe/libj/libjpeg6b/libjpeg62_6b2-3_amd64.deb
         sudo apt install -y ./libjpeg62_6b2-3_amd64.deb
     fi
@@ -57,7 +57,10 @@ function install_freesurfer () {
         sudo apt install -y ./libpng12-0_1.2.54-1ubuntu1.1_amd64.deb
     fi
 
-    if [ is_libjpg62 = "ii" -a is_libpng12 = "ii" ];then
+    is_libjpeg62=$(dpkg -l | grep "libjpeg62" | cut -c 1-2)
+    is_libpng12=$(dpkg -l | grep "libpng12" | cut -c 1-2)
+
+    if [ is_libjpeg62 = "ii" -a is_libpng12 = "ii" ];then
         echo -e "Dependency checking done. Starting to install FreeSurfer.\n
         The series of the version of FreeSurfer is $1\n
         Downloading FreeSurfer $1, please wait..."
