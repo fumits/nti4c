@@ -47,12 +47,12 @@ function install_freesurfer () {
     is_libjpeg62=$(dpkg -l | grep libjpeg62 | cut -c 1-2)
     is_libpng12=$(dpkg -l | grep libpng12 | cut -c 1-2)
 
-    if [ is_libjpeg62 = !"ii" ]; then
+    if [ $is_libjpeg62 = !"ii" ]; then
         curl -O http://security.ubuntu.com/ubuntu/pool/universe/libj/libjpeg6b/libjpeg62_6b2-3_amd64.deb
         sudo apt install -y ./libjpeg62_6b2-3_amd64.deb
     fi
 
-    if [ is_libpng12 = !"ii" ]; then
+    if [ $is_libpng12 = !"ii" ]; then
         curl -O http://security.ubuntu.com/ubuntu/pool/main/libp/libpng/libpng12-0_1.2.54-1ubuntu1.1_amd64.deb
         sudo apt install -y ./libpng12-0_1.2.54-1ubuntu1.1_amd64.deb
     fi
@@ -60,7 +60,7 @@ function install_freesurfer () {
     is_libjpeg62=$(dpkg -l | grep "libjpeg62" | cut -c 1-2)
     is_libpng12=$(dpkg -l | grep "libpng12" | cut -c 1-2)
 
-    if [ is_libjpeg62 = "ii" -a is_libpng12 = "ii" ];then
+    if [ $is_libjpeg62 = "ii" -a $is_libpng12 = "ii" ];then
         echo -e "Dependency checking done. Starting to install FreeSurfer.\n
         The series of the version of FreeSurfer is $1\n
         Downloading FreeSurfer $1, please wait..."
