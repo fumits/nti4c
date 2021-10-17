@@ -29,7 +29,7 @@ function install_freesurfer () {
     do
         echo -e "Prepare your FreeSufer license and copy it to the root folder.\n
         You can not install FreeSurfer without the license file.\n
-        Press y to continue. Press n to quit this install."
+        Press y to continue. Press n to quit this install.\n"
         read fs_license_answer
         case $fs_license_answer in
             [Yy]*)
@@ -42,7 +42,7 @@ function install_freesurfer () {
     done
     # install libjpg62/libpng12
     echo -e "Preparing to check libraries with dependency. \n
-    Download and install libjpg62 and libpng12..."
+    Download and install libjpg62 and libpng12...\n"
     
     curl -O http://security.ubuntu.com/ubuntu/pool/universe/libj/libjpeg6b/libjpeg62_6b2-3_amd64.deb
     sudo apt install -y ./libjpeg62_6b2-3_amd64.deb
@@ -56,7 +56,7 @@ function install_freesurfer () {
     if [ "$is_libjpeg62" = "ii" -a "$is_libpng12" = "ii" ];then
         echo -e "Dependency checking done. Starting to install FreeSurfer.\n
         The series of the version of FreeSurfer is $1\n
-        Downloading FreeSurfer $1, please wait..."
+        Downloading FreeSurfer $1, please wait...\n"
         cd $HOME
         if [ $1 = "6.0.1" ]; then
             curl -O -C - ftp://ftp.nmr.mgh.harvard.edu/pub/dist/freesurfer/6.0.1/freesurfer-Linux-centos6_x86_64-stable-pub-v6.0.1.tar.gz
