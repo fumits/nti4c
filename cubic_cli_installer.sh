@@ -10,7 +10,7 @@
 # Start Cubic and select Ubuntu 18.04 ISO image.
 
 apt update
-apt upgrade -y
+# apt upgrade -y
 
 apt install git curl vim -y
 
