@@ -27,21 +27,21 @@ function install_freesurfer () {
     # Check the FS license
     while :
     do
-        echo "Prepare your FreeSufer license and copy it to the root folder./
-        You can not install FreeSurfer without the license file./
-        Press n to continue. Press q to quit this install."
+        echo -e "Prepare your FreeSufer license and copy it to the root folder.\n
+        You can not install FreeSurfer without the license file.\n
+        Press y to continue. Press n to quit this install."
         read fs_license_answer
         case fs_license_answer in
-            [Nn]*)
+            [Yy]*)
             break
             ;;
-            [Qq]*)
-            exit 0
+            [Nn]*)
+            exit 1
             ;;
         esac
     done
     # install libjpg62/libpng12
-    echo "Preparing to check libraries with dependency. /
+    echo -e "Preparing to check libraries with dependency. \n
     Download and install libjpg62 and libpng12 if do not exist."
     
     is_libjpg62=$(dpkg -l "libjpg62" | cut -c 1-3)
@@ -58,8 +58,8 @@ function install_freesurfer () {
     fi
 
     if [ is_libjpg62 = "ii" -a is_libpng12 = "ii" ];then
-        echo "Dependency checking done. Starting to install FreeSurfer./
-        The series of the version of FreeSurfer is $1/
+        echo -e "Dependency checking done. Starting to install FreeSurfer.\n
+        The series of the version of FreeSurfer is $1\n
         Downloading FreeSurfer $1, please wait..."
         cd $HOME
         if [ $1 = "6.0.1" ]; then
@@ -73,7 +73,7 @@ function install_freesurfer () {
             md5_checksum="c8c73f5d2ef134f74305770b67436531"
             echo "$md5_checksum  $fs_filename" > $fs_filename.md5
         else
-            echo "Error: The version of FreeSurfer is not correctly specified./
+            echo -e "Error: The version of FreeSurfer is not correctly specified.\n
              Abort installaton."
             exit 1
         fi
@@ -91,7 +91,7 @@ function install_freesurfer () {
     else
         echo "Dependent libraries are not correctly installed. Abort installaton."
 
-    echo "The consistency of the downloaded file was confirmed./
+    echo -e "The consistency of the downloaded file was confirmed.\n
     Installing FreeSurfer $1..."
     fi
 
