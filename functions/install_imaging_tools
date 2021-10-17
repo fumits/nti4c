@@ -3,7 +3,7 @@
 # Install functions
 # 1. FSL, 2. FreeSurfer, 3. AFNI
 
-FSL
+# FSL
 function install_fsl () {
     is_fsl=$(which fsl)
     is_fslinstaller=$(find ~/ -name "fslinstaller.py")
@@ -112,4 +112,8 @@ function install_freesurfer () {
 
 }
 
+function install_afni () {
 
+
+    
+}

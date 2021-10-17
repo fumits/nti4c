@@ -55,7 +55,7 @@ case $tool_number in
         install_fsl
         ;;
     2)
-        echo "Specify the series of the version of FreeSurfer [6.0.1 or 7.2.0]./
+        echo "Specify the version of FreeSurfer [6.0.1 or 7.2.0]./
         If you want to quit, press q key."
         while :
         do
@@ -65,7 +65,7 @@ case $tool_number in
                 install_freesurfer 6.0.1
                 break
             elif [ $version = 7.2.0 ]; then
-                echo "FreeSurfer version 7.1.0"
+                echo "FreeSurfer version 7.2.0"
                 install_freesurfer 7.2.0
                 break
             elif [ $version = "q" ]; then
@@ -78,5 +78,6 @@ case $tool_number in
         ;;
     3) 
         echo "AFNI selected"
+        install_afni
         ;;
 esac
