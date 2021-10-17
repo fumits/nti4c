@@ -49,7 +49,7 @@ case $tool_number in
         ;;
     1)
         echo "FSL is selected"
-        hello
+        install_fsl
         ;;
     2)
         echo "Specify the series of the version of FreeSurfer [6.0.1 or 7.2.0]./
