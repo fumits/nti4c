@@ -92,17 +92,17 @@ function install_freesurfer () {
     echo "The consistency of the downloaded file was confirmed./
     Installing FreeSurfer $1..."
 
-    path_to_fs="/usr/local"
+    path_to_fs="/usr/local/freesurfer"
 
-    if [ ! -d $path_to_fs/freesurfer ]; then
-        mkdir $path_to_fs/freesurfer
+    if [ ! -d $path_to_fs ]; then
+        mkdir $path_to_fs
     fi
 
     if [ $1 = "6.0.1" ]; then
         cd $HOME
-        tar xvf $HOME/$fs_filename -C $path_to_fs/freesurfer
-        mv $path_to_fs/freesurfer $path_to_fs/freesurfer/$1
-        cp $HOME/license.txt $path_to_fs/freesurfer/$1
+        tar xvf $HOME/$fs_filename -C $path_to_fs
+        mv $path_to_fs $path_to_fs/$1
+        cp $HOME/license.txt $path_to_fs/$1
     elif [ $1 = "7.2.0" ]; then
         cd $HOME
         apt install ./$fs_filename -y

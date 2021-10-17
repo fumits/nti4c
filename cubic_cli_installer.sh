@@ -12,7 +12,7 @@
 apt update
 apt upgrade -y
 
-apt install git curl vim python2 -y
+apt install git curl vim -y
 
 . ./install_scripts/functions
 # cd $HOME
@@ -49,7 +49,7 @@ case $tool_number in
         ;;
     1)
         echo "FSL is selected"
-        hello_all
+        install_fsl
         ;;
     2)
         echo "Specify the series of the version of FreeSurfer [6.0.1 or 7.2.0]./
