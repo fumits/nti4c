@@ -1,0 +1,39 @@
+function install_devtools () {
+    cd $HOME
+    
+    # install gcc, make
+    
+    is_gcc=$(which gcc)
+
+    if [ -z is_gcc ]; then
+        echo "Installing build-essential..."
+        apt install build-essential -y
+    fi
+
+    # install vscode from MS repository
+    
+    is_code=$(which code)
+
+    if [ -z is_code ]; then
+        echo "Installing Visual Studio Code..."
+        if [ ! -e $HOME/microsoft.gpg ]; then
+            curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+            install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
+        sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+        apt install apt-transport-https
+        apt update
+        apt install code
+    else
+        echo "Visual Studio Code has already been installed..."
+    fi
+
+    # install Gimp
+    
+    is_gimp=$(which gimp)
+    
+    if [ -z is_gimp ]; then
+        echo "Installing Gimp.."
+        apt install gimp
+    else
+        echo "Gimp has already been installed..."   
+}

@@ -14,8 +14,11 @@ apt upgrade -y
 
 apt install git curl vim -y
 
-. ./functions/functions
-# cd $HOME
+. ./functions/install_imaging_tools
+. ./functions/install_analysis_tools
+. ./functions/install_misc
+
+cd $HOME
 
 # start installer
 while :
