@@ -44,8 +44,8 @@ function install_freesurfer () {
     echo -e "Preparing to check libraries with dependency. \n
     Download and install libjpg62 and libpng12 if do not exist."
     
-    is_libjpeg62=$(dpkg -l | grep "libjpeg62" | cut -c 1-2)
-    is_libpng12=$(dpkg -l | grep "libpng12" | cut -c 1-2)
+    is_libjpeg62=$(dpkg -l | grep libjpeg62 | cut -c 1-2)
+    is_libpng12=$(dpkg -l | grep libpng12 | cut -c 1-2)
 
     if [ is_libjpeg62 = !"ii" ]; then
         curl -O http://security.ubuntu.com/ubuntu/pool/universe/libj/libjpeg6b/libjpeg62_6b2-3_amd64.deb
