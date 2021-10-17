@@ -14,7 +14,7 @@ apt upgrade -y
 
 apt install git curl vim -y
 
-. ./install_scripts/functions
+. ./install_scripts/functions/functions
 # cd $HOME
 
 # start installer
