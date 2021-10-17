@@ -2,7 +2,7 @@
 
 # This script is for building custom ISO for neuroimaging analysis.
 # Oct 13, 2021 written by Fumitoshi Kodaka
-# To install Cubic (https://launchpad.net/cubic), do below in your Ubuntu.
+# To install Cubic visit https://launchpad.net/cubic, do below in your Ubuntu.
 #   $ sudo apt-add-repository ppa:cubic-wizard/release
 #   $ sudo apt update
 #   $ sudo apt install --no-install-recommends cubic
