@@ -8,9 +8,11 @@ function install_devtools () {
     if [ -z is_gcc ]; then
         echo "Installing build-essential..."
         apt install build-essential -y
+    else
+        echo "GCC has already been installed..."
     fi
 
-    # install vscode from MS repository
+    # install Visual Studio Code from MS repository
     
     is_code=$(which code)
 
@@ -36,4 +38,16 @@ function install_devtools () {
         apt install gimp
     else
         echo "Gimp has already been installed..."   
+    fi
 }
+
+    # install GParted
+
+    is_gparted=$(which gparted)
+
+    if [ -z is_gpartted ]; then
+        echo "Installing GParted.."
+        apt install gparted
+    else
+        echo "GParted has already been installed..."   
+    fi

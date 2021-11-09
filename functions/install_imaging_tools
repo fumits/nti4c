@@ -23,11 +23,10 @@ function install_fsl () {
 
 # FreeSurfer series of the version 6 or 7
 function install_freesurfer () {
-    cd $HOME
     # Check the FS license
     while :
     do
-        echo -e "Prepare your FreeSufer license and copy it to the root folder.\n
+        echo -e "Prepare your FreeSurfer license and copy it to the root folder.\n
         You can not install FreeSurfer without the license file.\n
         Press y to continue. Press n to quit this install.\n"
         read fs_license_answer
@@ -55,9 +54,9 @@ function install_freesurfer () {
 
     if [ "$is_libjpeg62" = "ii" -a "$is_libpng12" = "ii" ];then
         echo -e "Dependency checking done. Starting to install FreeSurfer.\n
-        The series of the version of FreeSurfer is $1\n
+        The version of FreeSurfer is $1\n
         Downloading FreeSurfer $1, please wait...\n"
-        cd $HOME
+
         if [ $1 = "6.0.1" ]; then
             curl -O -C - ftp://ftp.nmr.mgh.harvard.edu/pub/dist/freesurfer/6.0.1/freesurfer-Linux-centos6_x86_64-stable-pub-v6.0.1.tar.gz
             fs_filename=freesurfer-Linux-centos6_x86_64-stable-pub-v6.0.1.tar.gz
@@ -87,9 +86,11 @@ function install_freesurfer () {
     else
         echo "Dependent libraries are not correctly installed. Abort installaton."
 
+    fi
+
     echo -e "The consistency of the downloaded file was confirmed.\n
     Installing FreeSurfer $1..."
-    fi
+
 
     path_to_fs="/usr/local/freesurfer"
 
@@ -98,13 +99,31 @@ function install_freesurfer () {
     fi
 
     if [ $1 = "6.0.1" ]; then
-        cd $HOME
-        tar xvf $HOME/$fs_filename -C $path_to_fs
-        mv $path_to_fs $path_to_fs/$1
-        cp $HOME/license.txt $path_to_fs/$1
+        tar xvf $fs_filename -C $path_to_fs
+        mv $path_to_fs/freesurfer $path_to_fs/$1
+        cp license.txt $path_to_fs/$1
     elif [ $1 = "7.2.0" ]; then
-        cd $HOME
         apt install ./$fs_filename -y
     fi
 
 }
+
+function install_matlab () {
+
+}
+
+
+function install_matalab_tb () {
+
+}
+
+
+function install_afni () {
+
+}
+
+
+function install_dsi_studio () {
+
+}
+
