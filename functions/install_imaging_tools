@@ -23,11 +23,8 @@ function install_fsl () {
 
 # FreeSurfer series of the version 6 or 7
 function install_freesurfer () {
-<<<<<<< HEAD
     apt install binutils tcsh uuid-dev
     cd $HOME
-=======
->>>>>>> bfda1c5ff8391a359c568c401d0c566fcdf2abb8
     # Check the FS license
     while :
     do
