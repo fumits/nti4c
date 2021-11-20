@@ -63,9 +63,9 @@ function install_freesurfer () {
             md5_checksum="09c7cfa5b6818c0c285b5f52f4578513"
             echo "$md5_checksum  $fs_filename" > $fs_filename.md5
         elif [ $1 = "7.2.0" ]; then
-            curl -O -C - ftp://ftp.nmr.mgh.harvard.edu/pub/dist/freesurfer/7.2.0/freesurfer_7.2.0_amd64.deb
-            fs_filename=freesurfer_7.2.0_amd64.deb
-            md5_checksum="c8c73f5d2ef134f74305770b67436531"
+            curl -O -C - ftp://ftp.nmr.mgh.harvard.edu/pub/dist/freesurfer/7.2.0/freesurfer-linux-ubuntu18_amd64-7.2.0.tar.gz
+            fs_filename=freesurfer-linux-ubuntu18_amd64-7.2.0.tar.gz
+            md5_checksum="aae6b77f759e566bb1d2682019717bdd"
             echo "$md5_checksum  $fs_filename" > $fs_filename.md5
         else
             echo -e "Error: The version of FreeSurfer is not correctly specified.\n
@@ -103,7 +103,9 @@ function install_freesurfer () {
         mv $path_to_fs/freesurfer $path_to_fs/$1
         cp license.txt $path_to_fs/$1
     elif [ $1 = "7.2.0" ]; then
-        apt install ./$fs_filename -y
+        tar xvf $fs_filename -C $path_to_fs
+        mv $path_to_fs/freesurfer $path_to_fs/$1
+        cp license.txt $path_to_fs/$1
     fi
 
 }
