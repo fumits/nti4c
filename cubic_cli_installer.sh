@@ -10,9 +10,13 @@
 # Start Cubic and select Ubuntu 18.04 ISO image.
 
 apt update
-# apt upgrade -y
+apt upgrade -y
 
-# apt install git curl vim -y
+# apt install git curl vim-gnome -y
+# touch .vimrc
+# cat <<EOF> .vimrc
+# set clipboard=unnamedplus
+# EOF
 
 . ./functions/install_imaging_tools
 . ./functions/install_analysis_tools

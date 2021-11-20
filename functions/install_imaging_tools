@@ -23,6 +23,11 @@ function install_fsl () {
 
 # FreeSurfer series of the version 6 or 7
 function install_freesurfer () {
+<<<<<<< HEAD
+    apt install binutils tcsh uuid-dev
+    cd $HOME
+=======
+>>>>>>> bfda1c5ff8391a359c568c401d0c566fcdf2abb8
     # Check the FS license
     while :
     do
@@ -99,9 +104,16 @@ function install_freesurfer () {
     fi
 
     if [ $1 = "6.0.1" ]; then
+<<<<<<< HEAD
+        cd $HOME
+        tar xvf $HOME/$fs_filename -C $path_to_fs
+        mv $path_to_fs/fressurfer $path_to_fs/$1
+        cp $HOME/license.txt $path_to_fs/$1
+=======
         tar xvf $fs_filename -C $path_to_fs
         mv $path_to_fs/freesurfer $path_to_fs/$1
         cp license.txt $path_to_fs/$1
+>>>>>>> bfda1c5ff8391a359c568c401d0c566fcdf2abb8
     elif [ $1 = "7.2.0" ]; then
         tar xvf $fs_filename -C $path_to_fs
         mv $path_to_fs/freesurfer $path_to_fs/$1

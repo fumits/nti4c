@@ -12,9 +12,9 @@ function install_devtools () {
         echo "GCC has already been installed..."
     fi
 
-    # install Visual Studio Code from MS repository
+    # install vscode from MS repository
     
-    is_code=$(which code)
+    is_code=$(which code)]]]
 
     if [ -z is_code ]; then
         echo "Installing Visual Studio Code..."
@@ -38,16 +38,4 @@ function install_devtools () {
         apt install gimp
     else
         echo "Gimp has already been installed..."   
-    fi
 }
-
-    # install GParted
-
-    is_gparted=$(which gparted)
-
-    if [ -z is_gpartted ]; then
-        echo "Installing GParted.."
-        apt install gparted
-    else
-        echo "GParted has already been installed..."   
-    fi
