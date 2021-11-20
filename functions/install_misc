@@ -8,11 +8,13 @@ function install_devtools () {
     if [ -z is_gcc ]; then
         echo "Installing build-essential..."
         apt install build-essential -y
+    else
+        echo "GCC has already been installed..."
     fi
 
     # install vscode from MS repository
     
-    is_code=$(which code)
+    is_code=$(which code)]]]
 
     if [ -z is_code ]; then
         echo "Installing Visual Studio Code..."
