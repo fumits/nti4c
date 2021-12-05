@@ -12,6 +12,8 @@
 apt update
 apt upgrade -y
 
+apt install git curl net-tools -y
+
 # apt install git curl vim-gnome -y
 # touch .vimrc
 # cat <<EOF> .vimrc
