@@ -38,4 +38,16 @@ function install_devtools () {
         apt install gimp
     else
         echo "Gimp has already been installed..."   
+
+    is_R=$(which r-base)
+
+    # install R+RStudio
+
+    if [ -z is_R ]; then
+        echo "Installing RStudio.."
+        curl -O https://download1.rstudio.org/desktop/bionic/amd64/rstudio-2021.09.2-382-amd64.deb
+        apt install rstudio-2021.09.2-382-amd64.deb -y
+    else
+        echo "r-base has already been installed..."   
+
 }
